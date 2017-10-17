@@ -8,7 +8,8 @@
 To build and emulate the kernel you need to have these tools installed:
 
 * nasm
-* cross-compiler (for the i686-elf target)
+* gcc
+* cross-compiler for the i686-elf target (included in the repo)
 * qemu
 
 This repository includes a **cross-compiler** for the **i686-elf** target which I built on **macOS Sierra** using **gcc-7.2.0**. It has been tested on **macOS High Sierra** too. If you are using a recent version of macOS, you should be able to use this cross-compiler without any problems, but do make sure to install **gcc** because with macOS only clang is included. `brew install gcc` is your friend.
