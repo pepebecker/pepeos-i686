@@ -1,12 +1,15 @@
+CROSS_COMPILER = $(shell pwd)/cross-compiler/bin
+export PATH := $(CROSS_COMPILER):$(PATH)
+
 build: iso
 
 kernel:
 	mkdir -p dist/obj
 	nasm -felf32 src/boot.asm -o dist/obj/boot.o
-	i686-elf-gcc -m32 -c src/kernel.c -o dist/obj/kernel.o
+	$(CROSS_COMPILER)/i686-elf-gcc -m32 -c src/kernel.c -o dist/obj/kernel.o
 
 	mkdir -p dist/bin
-	i686-elf-gcc -T src/linker.ld -o dist/bin/kernel.bin -ffreestanding -O2 -nostdlib dist/obj/boot.o dist/obj/kernel.o -lgcc
+	$(CROSS_COMPILER)/i686-elf-gcc -T src/linker.ld -o dist/bin/kernel.bin -ffreestanding -O2 -nostdlib dist/obj/boot.o dist/obj/kernel.o -lgcc
 	sh check_multiboot.sh
 
 iso: kernel
