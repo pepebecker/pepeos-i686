@@ -11,7 +11,7 @@ To build and emulate the kernel you need to have these tools installed:
 * cross-compiler (for the i686-elf target)
 * qemu
 
->This repository includes a **cross-compiler** for the **i686-elf** target which I built on **macOS Sierra** using **gcc-7.2.0**. If you are using a recent version of macOS, you should be able to use this cross-compiler without any problems.
+This repository includes a **cross-compiler** for the **i686-elf** target which I built on **macOS Sierra** using **gcc-7.2.0**. It has been tested on **macOS High Sierra** too. If you are using a recent version of macOS, you should be able to use this cross-compiler without any problems, but do make sure to install **gcc** because with macOS only clang is included. `brew install gcc` is your friend.
 
 If you want to build an **iso** you also need to have the following tools installed on your system:
 
